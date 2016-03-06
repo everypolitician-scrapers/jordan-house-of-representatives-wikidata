@@ -4,5 +4,6 @@
 require 'wikidata/fetcher'
 
 names = EveryPolitician::Wikidata.morph_wikinames(source: 'tmtmtmtm/jordan-house-of-representatives-wikipedia', column: 'wikiname')
-EveryPolitician::Wikidata.scrape_wikidata(names: { en: names }, output: false)
-warn EveryPolitician::Wikidata.notify_rebuilder
+ids = EveryPolitician::Wikidata.wdq('claim[39:17524418]')
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { en: names }, output: false)
